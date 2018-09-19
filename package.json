@@ -1,11 +1,11 @@
 {
 	"name": "redux-saga-request",
-	"version": "1.1.1",
-	"description": "Common frontend components for SM",
+	"version": "0.0.1",
+	"description": "make a fetch request",
 	"main": "dist/index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/varenik163/sm-string-helper.git"
+		"url": "git+https://github.com/varenik163/redux-saga-request"
 	},
 	"keywords": [
 		"react",
@@ -15,9 +15,9 @@
 	"author": "varenik163",
 	"license": "BSD-3-Clause",
 	"bugs": {
-		"url": "https://github.com/varenik163/sm-string-helper/issues"
+		"url": "https://github.com/varenik163/redux-saga-request/issues"
 	},
-	"homepage": "https://github.com/varenik163/sm-string-helper#readme",
+	"homepage": "https://github.com/varenik163/redux-saga-request#readme",
 	"peerDependencies": {},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
