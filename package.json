@@ -1,5 +1,5 @@
 {
-	"name": "redux-saga-request",
+	"name": "sm-redux-saga-request",
 	"version": "0.0.2",
 	"description": "make a fetch request",
 	"main": "dist/index.js",
