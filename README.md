@@ -1,2 +1,3 @@
 ### Redux Saga Request
-It's a one function saga effect, wich helps make fetch requsts.
+It's a redux action, wich make fetch request and return response parameters: response, error.
+It's not nessasary to handle 
