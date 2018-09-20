@@ -24,6 +24,7 @@ function createRequestMiddleware(extraArgument) {
 				if (!auth || action.token_is_active) return next(action);
 
 				var auth_token = store.getState().Auth.idToken;
+				var checkTokenPath = store.getState().Auth.checkTokenPath;
 
 				if (!auth_token) {
 					console.log('auth-token redirects');
@@ -32,7 +33,7 @@ function createRequestMiddleware(extraArgument) {
 				}
 
 				try {
-					fetch(API + ('/v1/common/auth/check-token/' + auth_token), {
+					fetch(API + ('' + checkTokenPath + auth_token), {
 						method: 'GET',
 						headers: { 'Content-Type': 'application/json' }
 					}).then(function (data) {
