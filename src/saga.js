@@ -1,5 +1,10 @@
+import {all, takeEvery, put, call, select} from 'redux-saga/effects';
+const START = '_START', SUCCESS = '_SUCCESS', ERROR = '_ERROR';
+const apiDomenSelector = state => state.Auth.API;
+
 export function* requestSaga(action) {
 	const {payload, method, url, auth, oldType: type, token, token_is_active} = action;
+	const API = yield select(apiDomenSelector);
 
 	if(auth && !token_is_active) return;
 
