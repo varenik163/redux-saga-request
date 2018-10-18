@@ -1,3 +1,4 @@
+import requestAction from './action'
 function createRequestMiddleware(extraArgument) {
 	return store => next => action => {
 		const {auth} = action;
@@ -38,10 +39,10 @@ function createRequestMiddleware(extraArgument) {
 		}
 
 	}
-
 }
 
-const request = createRequestMiddleware();
-request.withExtraArgument = createRequestMiddleware;
+const requestMiddleware = createRequestMiddleware();
+requestMiddleware.withExtraArgument = createRequestMiddleware;
 
-export default request;
+export const request = requestAction;
+export default requestMiddleware;
