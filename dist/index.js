@@ -16,8 +16,8 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-var REQUEST = "REQUEST";
-var requestAction = request = function request(params) {
+var REQUEST = 'REQUEST';
+var request = function request(params) {
   return _extends({}, params, { oldType: params.type, type: REQUEST });
 };
 
@@ -69,7 +69,7 @@ function createRequestMiddleware(extraArgument) {
 var requestMiddleware = createRequestMiddleware();
 requestMiddleware.withExtraArgument = createRequestMiddleware;
 
-var request$1 = requestAction;
+var request$1 = request;
 
 exports.request = request$1;
 exports.default = requestMiddleware;
