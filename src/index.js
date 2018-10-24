@@ -1,48 +1,15 @@
-import requestAction from './action'
-function createRequestMiddleware(extraArgument) {
-	return store => next => action => {
-		const {auth} = action;
+import { all, takeEvery } from 'redux-saga/effects';
+import requestAction, { REQUEST } from './action'
+import { requestSaga } from './saga'
 
-		if (!auth || action.token_is_active) return next(action);
-
-		const auth_token = store.getState().Auth.idToken;
-		const checkTokenPath = store.getState().Auth.checkTokenPath;
-
-		if(!auth_token) {
-			console.log('auth-token redirects');
-			loginRedirect();
-			return next(action);
-		}
-
-		try {
-			fetch(API + `${checkTokenPath}${auth_token}`, {
-				method: 'GET',
-				headers: {'Content-Type': 'application/json'}
-			}).then(data => data.json()).then(data => {
-				if(data.response.active) {
-					next({
-						...action,
-						token: auth_token,
-						token_is_active: true
-					})
-				}
-				else {
-					console.log('auth-token gives a shit');
-					store.dispatch({type: authActions.LOGOUT + SUCCESS});
-				}
-			}).catch(err => {
-				console.error(err);
-			});
-		}
-		catch (err) {
-			console.error(err)
-		}
-
-	}
+function* rootSaga() {
+	yield all([
+		takeEvery(REQUEST, requestSaga)
+	]);
 }
 
-const requestMiddleware = createRequestMiddleware();
-requestMiddleware.withExtraArgument = createRequestMiddleware;
+const requestMiddleware = rootSaga();
+requestMiddleware.withExtraArgument = rootSaga;
 
 export const request = requestAction;
 export default requestMiddleware;

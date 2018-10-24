@@ -18,7 +18,7 @@ export function* requestSaga(action) {
 		const headers = new Headers({
 			'Content-Type': 'application/json'
 		});
-		if(auth) headers.set('Authorization', "Bearer " + token);
+		if (auth) headers.set('Authorization', "Bearer " + token);
 
 		const params = {
 			method,
@@ -26,7 +26,7 @@ export function* requestSaga(action) {
 			mode: 'cors'
 		};
 
-		if(body && method !== 'GET') params.body = body;
+		if (body && method !== 'GET') params.body = body;
 
 		const data = yield call(
 			fetch,
@@ -66,12 +66,12 @@ export function* requestSaga(action) {
 }
 
 export const getError = (data, response) => {
-	if(data.status === 0) return {
+	if (data.status === 0) return {
 		message: 'Unknow error: check your authorization. ' +
 		'No \'Access-Control-Allow-Origin\' header is present on the requested resource.'
 	};
-	if(data.status === 500) return response;
-	if(response.messages) return response.messages[0];
+	if (data.status === 500) return response;
+	if (response.messages) return response.messages[0];
 
 	return ''
 };

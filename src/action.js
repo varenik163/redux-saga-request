@@ -1,3 +1,7 @@
 export const REQUEST = 'REQUEST';
-const request = params => ({ ...params, oldType: params.type, type: REQUEST });
-export default request;
+export default function request(params) {
+	return {
+		...params, oldType: params.type, type: REQUEST
+	};
+}
+
