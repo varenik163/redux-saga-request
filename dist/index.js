@@ -484,6 +484,8 @@ var requestMiddleware = rootSaga();
 requestMiddleware.withExtraArgument = rootSaga;
 
 var request$1 = request;
+var saga = requestSaga;
 
 exports.request = request$1;
+exports.saga = saga;
 exports.default = requestMiddleware;

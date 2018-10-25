@@ -12,4 +12,5 @@ const requestMiddleware = rootSaga();
 requestMiddleware.withExtraArgument = rootSaga;
 
 export const request = requestAction;
+export const saga = requestSaga
 export default requestMiddleware;
