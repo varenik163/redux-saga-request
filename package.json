@@ -1,6 +1,6 @@
 {
 	"name": "sm-redux-saga-request",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "make a fetch request",
 	"main": "dist/index.js",
 	"repository": {
