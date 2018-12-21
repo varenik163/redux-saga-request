@@ -1,5 +1,6 @@
 import { all, takeEvery, put, call, select } from 'redux-saga/effects';
 const START = '_START', SUCCESS = '_SUCCESS', ERROR = '_ERROR';
+import regeneratorRuntime from 'regenerator-runtime'
 //const apiDomenSelector = state => state.Auth.API;
 
 export function* requestSaga(action) {
